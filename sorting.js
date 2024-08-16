@@ -25,14 +25,32 @@ const bubblesort = (array) => {
     for (i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1]) {
         let temp = array[i];
-        array[i] = array[i + 1];
+        array[i] = array[i + 1]; // [arr[i],arr[i+1]]= [arr[i+1],arr[i]];
         array[i + 1] = temp;
         swapped = true;
       }
-
     }
   } while (swapped);
   return array;
 };
 
-console.log(bubblesort(array));
+// console.log(bubblesort(array));
+
+
+// Selection Sort
+
+const SelectionSort = (arr) => {
+  for (let i = 0; i < arr.length- 1; i++) {
+    let minindex = i;
+    for (let j = i+ 1; j < arr.length; j++) {
+      if (arr[j] < arr[minindex]) {
+        minindex = j;
+      }
+      if(minindex!=i){
+      [arr[i], arr[minindex]] = [arr[minindex], arr[i]];}
+    }
+  }
+  return arr;
+};
+
+// console.log(SelectionSort([3,2,1,5,43,7]))
