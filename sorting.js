@@ -36,21 +36,38 @@ const bubblesort = (array) => {
 
 // console.log(bubblesort(array));
 
-
 // Selection Sort
 
 const SelectionSort = (arr) => {
-  for (let i = 0; i < arr.length- 1; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     let minindex = i;
-    for (let j = i+ 1; j < arr.length; j++) {
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] < arr[minindex]) {
         minindex = j;
       }
-      if(minindex!=i){
-      [arr[i], arr[minindex]] = [arr[minindex], arr[i]];}
+      if (minindex != i) {
+        [arr[i], arr[minindex]] = [arr[minindex], arr[i]];
+      }
     }
   }
   return arr;
 };
 
 // console.log(SelectionSort([3,2,1,5,43,7]))
+
+//Insertion Sort
+
+const insertionsort = (arr) => {
+  for (let i = 1; i < arr.length; i++) {
+    let current = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j] > current) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = current;
+  }
+  return arr;
+};
+
+// console.log(insertionsort([3, 2, 1, 5, 43, 7]));
